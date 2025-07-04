@@ -18,6 +18,7 @@ const user = usePage().props.auth.user;
           <Link href="/dashboard" class="block px-4 py-2 rounded hover:bg-blue-100 text-gray-700 font-medium" :class="{ 'bg-blue-500 text-white': $page.url === '/dashboard' }">Dashboard</Link>
           <Link href="/products" class="block px-4 py-2 rounded hover:bg-blue-100 text-gray-700 font-medium" :class="{ 'bg-blue-500 text-white': $page.url.startsWith('/products') }">Products</Link>
           <form :action="route('logout')" method="post">
+            <input type="hidden" name="_token" :value="$page.props.csrf_token" />
             <button type="submit" class="w-full text-left px-4 py-2 rounded hover:bg-red-100 text-red-600 font-medium">Logout</button>
           </form>
         </nav>
